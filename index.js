@@ -1,11 +1,12 @@
 const express = require('express')
 const app = express();
-const cors = require('cors')
+const cors = require('cors');
+const dotenv = require('dotenv');
+
+dotenv.config()
 app.use(cors())
-const corsOptions ={
-  origin: "https://c3nbw.csb.app/",
-  methods: "GET,POST"
-}
+
+
 const authRoute = require('./routes/auth');
 const videoRoute = require('./routes/video')
 const videoCategoryRoute = require('./routes/category')
@@ -17,7 +18,7 @@ require('./DB/initDB')
 app.use(express.json())
 
 app.get('/',(req,res)=>{
-  res.send("Hello")
+  res.send("Server is running ... ")
 })
 
 //Route Middlewares
